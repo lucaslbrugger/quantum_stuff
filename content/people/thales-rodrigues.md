@@ -5,7 +5,7 @@ role: "Doutorando"
 group: "Doutorandos"
 weight: 2
 institution: "Universidade de São Paulo"
-photo: "/images/people/thales.jpg"
+photo: "images/people/thales.jpg"
 
 short_bio: "Estudante de doutorado em Física."
 

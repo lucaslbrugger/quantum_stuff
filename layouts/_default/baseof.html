@@ -72,7 +72,7 @@
         <div class="container nav-container">
 
             <a
-                href="{{ "/" | relURL }}"
+                href="{{ .Site.Home.RelPermalink }}"
                 class="logo"
             >
 
@@ -87,12 +87,12 @@
 
             <nav class="navigation">
 
-    <a
-        href="{{ "/" | relURL }}"
-        class="{{ if .IsHome }}active{{ end }}"
-    >
-        Início
-    </a>
+            <a
+                href="{{ .Site.Home.RelPermalink }}"
+                class="{{ if .IsHome }}active{{ end }}"
+            >
+            Início
+            </a>
 
 
     <a

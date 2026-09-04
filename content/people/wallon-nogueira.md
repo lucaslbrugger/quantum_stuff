@@ -5,7 +5,7 @@ role: "Professor"
 group: "Professores"
 weight: 3
 institution: "Universidade Federal de Juiz de Fora"
-photo: "/images/people/wallon.jpg"
+photo: "images/people/wallon.jpg"
 
 short_bio: "Professor da Universidade Federal de Juiz de Fora."
 

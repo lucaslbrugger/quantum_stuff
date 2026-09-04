@@ -5,7 +5,7 @@ role: "Graduando"
 group: "Graduandos"
 weight: 1
 institution: "Universidade Federal de Juiz de Fora"
-photo: "/images/people/Kaike.jpg"
+photo: "images/people/Kaike.jpg"
 
 short_bio: "Estudante de graduação em Física."
 

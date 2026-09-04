@@ -5,7 +5,7 @@ role: "Professor"
 group: "Professores"
 weight: 4
 institution: "Universidade Federal de Juiz de Fora"
-photo: "/images/people/rodrigo.jpg"
+photo: "images/people/rodrigo.jpg"
 
 short_bio: "Professor da Universidade Federal de Juiz de Fora."
 

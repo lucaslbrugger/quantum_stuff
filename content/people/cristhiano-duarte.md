@@ -5,7 +5,7 @@ role: "Professor Visitante"
 group: "Professores"
 weight: 2
 institution: "Universidade Federal de Juiz de Fora"
-photo: "/images/people/cris.jpg"
+photo: "images/people/cris.jpg"
 
 short_bio: "Professor visitante da Universidade Federal de Juiz de Fora."
 

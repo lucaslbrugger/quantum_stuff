@@ -5,7 +5,7 @@ role: "Mestrando"
 group: "Mestrandos"
 weight: 1
 institution: "Universidade Federal de Juiz de Fora"
-photo: "/images/people/sulista.jpg"
+photo: "images/people/sulista.jpg"
 
 short_bio: "Estudante de mestrado em Física."
 

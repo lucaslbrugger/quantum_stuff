@@ -5,7 +5,7 @@ role: "Doutorando"
 group: "Doutorandos"
 weight: 3
 institution: "Universidade Federal de Juiz de Fora"
-photo: "/images/people/julio.jpg"
+photo: "images/people/julio.jpg"
 
 short_bio: "Estudante de doutorado em Física."
 

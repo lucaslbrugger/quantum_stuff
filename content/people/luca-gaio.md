@@ -5,7 +5,7 @@ role: "Doutorando"
 group: "Doutorandos"
 weight: 5
 institution: "Universidade de São Paulo"
-photo: "/images/people/luca.jpg"
+photo: "images/people/luca.jpg"
 
 short_bio: "Estudante de doutorado em Física."
 

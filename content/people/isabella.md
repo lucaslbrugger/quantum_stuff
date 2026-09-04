@@ -5,7 +5,7 @@ role: "Graduando"
 group: "Graduandos"
 weight: 2
 institution: "Universidade Federal de Juiz de Fora"
-photo: "/images/people/isabella.jpg"
+photo: "images/people/isabella.jpg"
 
 short_bio: "Estudante de graduação em Física."
 

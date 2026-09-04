@@ -9,7 +9,7 @@
         {{ if .Params.photo }}
 
             <img
-                src="{{ .Params.photo }}"
+                src="{{ .Params.photo | relURL }}"
                 alt="{{ .Params.name }}"
                 loading="lazy"
             >
