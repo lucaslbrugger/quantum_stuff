@@ -1,0 +1,188 @@
+{{ define "main" }}
+
+<section class="publication-single">
+
+    <a
+        href="{{ "publications/" | relURL }}"
+        class="back-link"
+    >
+        ← Voltar para Publicações
+    </a>
+
+
+    <header class="publication-single-header">
+
+        <span class="publication-type">
+            {{ .Params.type }}
+        </span>
+
+
+        <h1>
+            {{ .Title }}
+        </h1>
+
+
+        <p class="publication-year-large">
+            {{ .Date.Format "2006" }}
+        </p>
+
+    </header>
+
+
+    <div class="publication-single-grid">
+
+
+        <main class="publication-single-content">
+
+
+            {{ with .Params.authors }}
+
+            <section class="publication-section">
+
+                <h2>
+                    Autores
+                </h2>
+
+                <p class="publication-authors-large">
+                    {{ delimit . ", " }}
+                </p>
+
+            </section>
+
+            {{ end }}
+
+
+
+            {{ with .Params.journal }}
+
+            <section class="publication-section">
+
+                <h2>
+                    Publicado em
+                </h2>
+
+                <p>
+                    {{ . }}
+                </p>
+
+            </section>
+
+            {{ end }}
+
+
+
+            <section class="publication-section">
+
+                <h2>
+                    Resumo
+                </h2>
+
+                <div class="publication-abstract">
+                    {{ .Content }}
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+
+        <aside class="publication-details">
+
+            <h2>
+                Informações
+            </h2>
+
+
+            <div class="publication-detail">
+
+                <span>
+                    Ano
+                </span>
+
+                <strong>
+                    {{ .Date.Format "2006" }}
+                </strong>
+
+            </div>
+
+
+
+            {{ with .Params.doi }}
+
+            {{ if ne . "" }}
+
+            <div class="publication-detail">
+
+                <span>
+                    DOI
+                </span>
+
+                <a
+                    href="{{ printf "https://doi.org/%s" . }}"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    {{ . }}
+                </a>
+
+            </div>
+
+            {{ end }}
+
+            {{ end }}
+
+
+
+            {{ with .Params.arxiv }}
+
+            {{ if ne . "" }}
+
+            <div class="publication-detail">
+
+                <span>
+                    arXiv
+                </span>
+
+                <a
+                    href="{{ . }}"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Ver no arXiv
+                </a>
+
+            </div>
+
+            {{ end }}
+
+            {{ end }}
+
+
+
+            {{ with .Params.link }}
+
+            {{ if ne . "" }}
+
+            <a
+                class="publication-button"
+                href="{{ . }}"
+                target="_blank"
+                rel="noopener"
+            >
+                Acessar publicação →
+            </a>
+
+            {{ end }}
+
+            {{ end }}
+
+
+        </aside>
+
+    </div>
+
+</section>
+
+{{ end }}

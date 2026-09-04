@@ -1,0 +1,63 @@
+{{ define "main" }}
+
+<section class="gallery-page">
+
+    <div class="page-header">
+
+        <span class="section-label">REGISTROS</span>
+
+        <h1>{{ .Title }}</h1>
+
+        {{ with .Params.description }}
+        <p>{{ . }}</p>
+        {{ end }}
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+        {{ range $index, $image := .Params.images }}
+
+        <article
+            class="gallery-item gallery-item-{{ mod $index 5 }}"
+        >
+
+            <div class="gallery-image-wrapper">
+
+                <img
+                    src="{{ $image.image | relURL }}"
+                    alt="{{ $image.title }}"
+                    class="gallery-image"
+                    loading="lazy"
+                >
+
+                <div class="gallery-overlay">
+
+                    <span class="gallery-category">
+                        {{ $image.category }}
+                    </span>
+
+                    <h2>
+                        {{ $image.title }}
+                    </h2>
+
+                    {{ with $image.description }}
+                    <p>
+                        {{ . }}
+                    </p>
+                    {{ end }}
+
+                </div>
+
+            </div>
+
+        </article>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+{{ end }}

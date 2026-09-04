@@ -1,0 +1,95 @@
+{{ define "main" }}
+
+<section class="visitor-single">
+
+    <a href="{{ "visitors/" | relURL }}" class="back-link">
+        ← Voltar para Visitantes
+    </a>
+
+
+    <div class="visitor-profile">
+
+        <div class="visitor-profile-photo">
+
+            {{ if .Params.photo }}
+
+                <img
+                    src="{{ .Params.photo | relURL }}"
+                    alt="{{ .Params.name }}"
+                >
+
+            {{ else }}
+
+                <div class="visitor-profile-placeholder">
+                    {{ substr .Params.name 0 1 }}
+                </div>
+
+            {{ end }}
+
+        </div>
+
+
+        <div class="visitor-profile-info">
+
+            <span class="section-label">
+                PESQUISADOR VISITANTE
+            </span>
+
+            <h1>{{ .Params.name }}</h1>
+
+            <p class="visitor-profile-role">
+                {{ .Params.role }}
+            </p>
+
+            <p class="visitor-profile-institution">
+                {{ .Params.institution }}
+                {{ with .Params.country }}
+                    · {{ . }}
+                {{ end }}
+            </p>
+
+            {{ with .Params.period }}
+            <p class="visitor-profile-period">
+                Período: {{ . }}
+            </p>
+            {{ end }}
+
+        </div>
+
+    </div>
+
+
+    <div class="visitor-profile-content">
+
+        <div class="visitor-profile-main">
+
+            <h2>Sobre a visita</h2>
+
+            {{ .Content }}
+
+        </div>
+
+
+        {{ with .Params.research }}
+
+        <aside class="visitor-profile-research">
+
+            <h2>Frente de pesquisa</h2>
+
+            <div class="visitor-research">
+
+        {{ with $.Params.research }}
+            <span>{{ . }}</span>
+        {{ end }}
+
+        </div>
+
+        </aside>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+{{ end }}

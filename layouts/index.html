@@ -1,0 +1,356 @@
+{{ define "main" }}
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+    <div class="hero-orbit hero-orbit-1"></div>
+    <div class="hero-orbit hero-orbit-2"></div>
+    <div class="hero-orbit hero-orbit-3"></div>
+
+    <div class="hero-leaf hero-leaf-1"></div>
+    <div class="hero-leaf hero-leaf-2"></div>
+    <div class="hero-leaf hero-leaf-3"></div>
+
+
+    <div class="container hero-container">
+
+        <div class="hero-text">
+
+            <p class="eyebrow">
+                GRUPO DE PESQUISA · UFJF
+            </p>
+
+
+            <h1>
+                Explorando<br>
+                novas formas de<br>
+                <span>compreender.</span>
+            </h1>
+
+
+            <p class="hero-description">
+                Investigamos problemas fundamentais da Física
+                a partir de diferentes perspectivas, conectando
+                teoria, informação e novas formas de pensar
+                os sistemas físicos.
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a
+                    href="{{ "research/" | relURL }}"
+                    class="button button-primary"
+                >
+                    Nossas pesquisas
+                    <span>→</span>
+                </a>
+
+
+                <a
+                    href="{{ "people/" | relURL }}"
+                    class="button button-secondary"
+                >
+                    Conheça o grupo
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="organic-shape">
+
+                <div class="organic-center">
+                    <span></span>
+                </div>
+
+                <div class="organic-dot organic-dot-1"></div>
+                <div class="organic-dot organic-dot-2"></div>
+                <div class="organic-dot organic-dot-3"></div>
+                <div class="organic-dot organic-dot-4"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     INTRODUÇÃO
+========================================= -->
+
+<section class="intro-section">
+
+    <div class="container intro-grid">
+
+        <div>
+
+            <p class="eyebrow">
+                SOBRE O GRUPO
+            </p>
+
+            <h2>
+                Ciência acontece
+                <em>em conjunto.</em>
+            </h2>
+
+        </div>
+
+
+        <div class="intro-text">
+
+            <p>
+                Somos um grupo de pesquisadores dedicados
+                ao estudo de problemas em Física, reunindo
+                diferentes perspectivas, experiências e
+                interesses científicos.
+            </p>
+
+
+            <p>
+                Nosso trabalho busca compreender questões
+                fundamentais e desenvolver novas ferramentas
+                para investigá-las.
+            </p>
+
+
+            <a
+                href="{{ "people/" | relURL }}"
+                class="text-link"
+            >
+                Saiba mais sobre o grupo
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PESQUISA
+========================================= -->
+
+<section class="research-section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    O QUE FAZEMOS
+                </p>
+
+                <h2>
+                    Frentes de pesquisa
+                </h2>
+
+            </div>
+
+
+            <p>
+                Conheça as principais frentes
+                de pesquisa do grupo.
+            </p>
+
+        </div>
+
+
+        <div class="research-grid">
+
+
+            <!-- TIQ -->
+
+            <article class="research-card">
+
+                <div class="research-number">
+                    01
+                </div>
+
+
+                <div class="research-card-content">
+
+                    <h3>
+                        TIQ
+                    </h3>
+
+
+                    <p>
+                        Pesquisa em temas relacionados
+                        à teoria, informação e fundamentos
+                        da física quântica.
+                    </p>
+
+
+                    <a
+                        href="{{ "research/tiq/" | relURL }}"
+                    >
+                        Explorar →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- FÍSICA APLICADA -->
+
+            <article class="research-card">
+
+                <div class="research-number">
+                    02
+                </div>
+
+
+                <div class="research-card-content">
+
+                    <h3>
+                        Física Aplicada
+                    </h3>
+
+
+                    <p>
+                        Investigação de fenômenos físicos
+                        e desenvolvimento de métodos e
+                        ferramentas aplicados a diferentes
+                        contextos.
+                    </p>
+
+
+                    <a
+                        href="{{ "research/fisica-aplicada/" | relURL }}"
+                    >
+                        Explorar →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     AGENDA
+========================================= -->
+
+<section class="events-section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    AGENDA
+                </p>
+
+                <h2>
+                    Próximas atividades
+                </h2>
+
+            </div>
+
+
+            <a
+                href="{{ "activities/" | relURL }}"
+                class="text-link"
+            >
+                Ver cronograma completo
+                <span>→</span>
+            </a>
+
+        </div>
+
+
+        <div class="event-list">
+
+            {{ $activities := where site.RegularPages "Section" "activities" }}
+
+            {{ $activities = where $activities "Date" "ge" now }}
+
+            {{ $activities = $activities.ByDate }}
+
+
+            {{ range first 3 $activities }}
+
+            <article class="event">
+
+                <div class="event-date">
+
+                    <strong>
+                        {{ .Date.Format "02" }}
+                    </strong>
+
+
+                    <span>
+                        {{ upper (.Date.Format "Jan") }}
+                    </span>
+
+                </div>
+
+
+                <div class="event-info">
+
+                    <span class="event-type">
+                        {{ .Params.type }}
+                    </span>
+
+
+                    <h3>
+                        {{ .Title }}
+                    </h3>
+
+
+                    <p>
+
+                        {{ with .Params.speaker }}
+                            {{ . }}
+                        {{ end }}
+
+
+                        {{ with .Params.institution }}
+                            · {{ . }}
+                        {{ end }}
+
+                    </p>
+
+                </div>
+
+            </article>
+
+            {{ end }}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+
+
+{{ end }}

@@ -1,0 +1,67 @@
+{{ define "main" }}
+
+<section class="research-single">
+
+    <a href="{{ "research/" | relURL }}" class="back-link">
+        ← Voltar para Pesquisa
+    </a>
+
+    <header class="research-single-header">
+
+        <span class="section-label">FRENTE DE PESQUISA</span>
+
+        <h1>{{ .Title }}</h1>
+
+        {{ with .Params.description }}
+        <p class="research-single-description">{{ . }}</p>
+        {{ end }}
+
+    </header>
+
+
+    <div class="research-single-content">
+
+        <div class="research-text">
+            {{ .Content }}
+        </div>
+
+
+        <div class="research-members">
+
+            <h2>Pesquisadores</h2>
+
+            <div class="research-member-list">
+
+                {{ range where site.RegularPages "Section" "people" }}
+
+                    {{ if in .Params.research $.Title }}
+
+                        <a href="{{ .RelPermalink }}" class="research-member">
+                            
+                            {{ if .Params.photo }}
+                            <img 
+                                src="{{ .Params.photo | relURL }}" 
+                                alt="{{ .Params.name }}"
+                            >
+                            {{ end }}
+
+                            <div>
+                                <strong>{{ .Params.name }}</strong>
+                                <span>{{ .Params.role }}</span>
+                            </div>
+
+                        </a>
+
+                    {{ end }}
+
+                {{ end }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{{ end }}

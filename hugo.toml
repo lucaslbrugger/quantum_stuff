@@ -1,3 +1,7 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = "http://localhost:1313/"
+title = "Quantum Stuff Group"
+
+buildFuture = true
+
+[params]
+    description = "Grupo de pesquisa em Física e em Fundamentos de Mecânica Quântica da Universidade Federal de Juiz de Fora."

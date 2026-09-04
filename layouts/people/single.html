@@ -1,0 +1,176 @@
+{{ define "main" }}
+
+<article class="person-page">
+
+    <div class="container">
+
+
+        <!-- VOLTAR -->
+
+        <a href="{{ "/people/" | relURL }}"
+           class="back-link">
+
+            ← Voltar para pessoas
+
+        </a>
+
+
+        <!-- CABEÇALHO -->
+
+        <div class="person-profile">
+
+
+            <div class="person-profile-photo">
+
+                {{ if .Params.photo }}
+
+                    <img
+                        src="{{ .Params.photo }}"
+                        alt="{{ .Params.name }}"
+                    >
+
+                {{ else }}
+
+                    <div class="profile-placeholder">
+
+                        <span>
+                            {{ substr .Params.name 0 1 }}
+                        </span>
+
+                    </div>
+
+                {{ end }}
+
+            </div>
+
+
+            <div class="person-profile-info">
+
+                <p class="eyebrow">
+                    {{ .Params.role }}
+                </p>
+
+                <h1>
+                    {{ .Params.name }}
+                </h1>
+
+                {{ with .Params.institution }}
+
+                    <p class="person-institution">
+                        {{ . }}
+                    </p>
+
+                {{ end }}
+
+
+                <!-- ÁREAS -->
+
+                {{ with .Params.research }}
+
+                    <div class="profile-research">
+
+                        {{ range . }}
+
+                            <span>
+                                {{ . }}
+                            </span>
+
+                        {{ end }}
+
+                    </div>
+
+                {{ end }}
+
+
+                <!-- LINKS -->
+
+                <div class="profile-links">
+
+                    {{ with .Params.email }}
+
+                        <a href="mailto:{{ . }}">
+                            E-mail
+                        </a>
+
+                    {{ end }}
+
+
+                    {{ with .Params.scholar }}
+
+                        <a href="{{ . }}"
+                           target="_blank"
+                           rel="noopener">
+
+                            Google Scholar
+
+                        </a>
+
+                    {{ end }}
+
+                    {{ with .Params.lattes }}
+
+                        <a href="{{ . }}"
+                         target="_blank"
+                         rel="noopener">
+
+                        Lattes
+
+                         </a>
+
+                    {{ end }}
+
+
+                    {{ with .Params.orcid }}
+
+                        <a href="{{ . }}"
+                           target="_blank"
+                           rel="noopener">
+
+                            ORCID
+
+                        </a>
+
+                    {{ end }}
+
+
+                    {{ with .Params.github }}
+
+                        <a href="{{ . }}"
+                           target="_blank"
+                           rel="noopener">
+
+                            GitHub
+
+                        </a>
+
+                    {{ end }}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BIOGRAFIA -->
+
+        <div class="person-biography">
+
+            <p class="eyebrow">
+                SOBRE
+            </p>
+
+            <div class="prose">
+
+                {{ .Content }}
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</article>
+
+{{ end }}

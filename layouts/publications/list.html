@@ -1,0 +1,121 @@
+{{ define "main" }}
+
+<section class="publications-page">
+
+    <div class="page-header">
+
+        <span class="section-label">
+            PRODUÇÃO CIENTÍFICA
+        </span>
+
+        <h1>
+            {{ .Title }}
+        </h1>
+
+        {{ with .Params.description }}
+
+        <p>
+            {{ . }}
+        </p>
+
+        {{ end }}
+
+    </div>
+
+
+    <div class="publications-list">
+
+        {{ range .Pages.ByDate.Reverse }}
+
+        <article class="publication-item">
+
+            <div class="publication-year">
+                {{ .Date.Format "2006" }}
+            </div>
+
+
+            <div class="publication-main">
+
+                <span class="publication-type">
+                    {{ .Params.type }}
+                </span>
+
+
+                <h2>
+                    <a href="{{ .RelPermalink }}">
+                        {{ .Title }}
+                    </a>
+                </h2>
+
+
+                {{ with .Params.authors }}
+
+                <p class="publication-authors">
+                    {{ delimit . ", " }}
+                </p>
+
+                {{ end }}
+
+
+                {{ with .Params.journal }}
+
+                <p class="publication-journal">
+                    {{ . }}
+                </p>
+
+                {{ end }}
+
+
+                <div class="publication-links">
+
+                    {{ with .Params.doi }}
+
+                    {{ if ne . "" }}
+
+                    <a
+                        href="{{ printf "https://doi.org/%s" . }}"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        DOI
+                    </a>
+
+                    {{ end }}
+
+                    {{ end }}
+
+
+                    {{ with .Params.arxiv }}
+
+                    {{ if ne . "" }}
+
+                    <a
+                        href="{{ . }}"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        arXiv
+                    </a>
+
+                    {{ end }}
+
+                    {{ end }}
+
+                </div>
+
+            </div>
+
+
+            <div class="publication-arrow">
+                →
+            </div>
+
+        </article>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+{{ end }}

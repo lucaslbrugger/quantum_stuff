@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+<section class="research-page">
+
+    <div class="page-header">
+        <span class="section-label">ÁREAS DE ATUAÇÃO</span>
+        <h1>{{ .Title }}</h1>
+
+        {{ with .Params.description }}
+        <p>{{ . }}</p>
+        {{ end }}
+    </div>
+
+    <div class="research-grid">
+
+        {{ range .Pages.ByWeight }}
+
+        <a href="{{ .RelPermalink }}" class="research-card">
+
+            <div class="research-card-number">
+                {{ printf "%02d" .Weight }}
+            </div>
+
+            <div class="research-card-content">
+                <h2>{{ .Title }}</h2>
+
+                {{ with .Params.description }}
+                <p>{{ . }}</p>
+                {{ end }}
+
+                <span class="research-card-link">
+                    Conheça esta frente
+                    <span>→</span>
+                </span>
+            </div>
+
+        </a>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+{{ end }}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="{{ .Site.Params.description }}"
+    >
+
+    <meta
+        property="og:title"
+        content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}"
+    >
+
+    <meta
+        property="og:description"
+        content="{{ .Site.Params.description }}"
+    >
+
+    <meta
+        property="og:type"
+        content="{{ if .IsHome }}website{{ else }}article{{ end }}"
+    >
+
+    <meta
+        property="og:url"
+        content="{{ .Permalink }}"
+    >
+
+    <meta
+        property="og:site_name"
+        content="{{ .Site.Title }}"
+    >
+
+    <link
+        rel="icon"
+        href="{{ "favicon.ico" | relURL }}"
+    >
+
+    <title>
+        {{ if .IsHome }}
+            {{ .Site.Title }}
+        {{ else }}
+            {{ .Title }} | {{ .Site.Title }}
+        {{ end }}
+    </title>
+
+    {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
+
+    <link
+        rel="stylesheet"
+        href="{{ $style.RelPermalink }}"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="site-header">
+
+        <div class="container nav-container">
+
+            <a
+                href="{{ "/" | relURL }}"
+                class="logo"
+            >
+
+                <span class="logo-mark"></span>
+
+                <span class="logo-text">
+                    Quantum Stuff Group
+                </span>
+
+            </a>
+
+
+            <nav class="navigation">
+
+    <a
+        href="{{ "/" | relURL }}"
+        class="{{ if .IsHome }}active{{ end }}"
+    >
+        Início
+    </a>
+
+
+    <a
+        href="{{ "research/" | relURL }}"
+        class="{{ if eq .Section "research" }}active{{ end }}"
+    >
+        Pesquisa
+    </a>
+
+
+    <a
+        href="{{ "people/" | relURL }}"
+        class="{{ if eq .Section "people" }}active{{ end }}"
+    >
+        Pessoas
+    </a>
+
+
+    <a
+        href="{{ "visitors/" | relURL }}"
+        class="{{ if eq .Section "visitors" }}active{{ end }}"
+    >
+        Visitantes
+    </a>
+
+
+    <a
+        href="{{ "activities/" | relURL }}"
+        class="{{ if eq .Section "activities" }}active{{ end }}"
+    >
+        Atividades
+    </a>
+
+
+    <a
+        href="{{ "publications/" | relURL }}"
+        class="{{ if eq .Section "publications" }}active{{ end }}"
+    >
+        Publicações
+    </a>
+
+
+    <a
+        href="{{ "gallery/" | relURL }}"
+        class="{{ if eq .Section "gallery" }}active{{ end }}"
+    >
+        Galeria
+    </a>
+
+</nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CONTEÚDO ================= -->
+
+    <main>
+
+        {{ block "main" . }}
+        {{ end }}
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-inner">
+
+
+            <div class="footer-brand">
+
+                <div class="footer-title">
+                    Quantum Stuff Group
+                </div>
+
+                <p>
+                    Grupo de Pesquisa em Física
+                </p>
+
+                <p>
+                    Universidade Federal de Juiz de Fora
+                </p>
+
+            </div>
+
+
+            <div class="footer-right">
+
+                <p class="footer-motto">
+                    Ciência · Pesquisa · Colaboração
+                </p>
+
+                <p>
+                    © {{ now.Year }} Quantum Stuff Group
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

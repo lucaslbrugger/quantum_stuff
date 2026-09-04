@@ -1,0 +1,125 @@
+{{ define "main" }}
+
+<section class="activities-page">
+
+    <div class="page-header">
+
+        <span class="section-label">
+            VIDA ACADÊMICA
+        </span>
+
+        <h1>
+            {{ .Title }}
+        </h1>
+
+        {{ with .Params.description }}
+        <p>
+            {{ . }}
+        </p>
+        {{ end }}
+
+    </div>
+
+
+    <div class="activities-timeline">
+
+        {{ range .Pages.ByDate }}
+
+        <article class="activity-item">
+
+            <div class="activity-date">
+
+                <span class="activity-day">
+                    {{ .Date.Format "02" }}
+                </span>
+
+                <span class="activity-month">
+                    {{ upper (.Date.Format "Jan") }}
+                </span>
+
+                <span class="activity-year">
+                    {{ .Date.Format "2006" }}
+                </span>
+
+            </div>
+
+
+            <div class="activity-line">
+                <span></span>
+            </div>
+
+
+            <div class="activity-content">
+
+                <span class="activity-type">
+                    {{ .Params.type }}
+                </span>
+
+
+                <h2>
+                    {{ .Title }}
+                </h2>
+
+
+                {{ with .Params.description }}
+
+                <p>
+                    {{ . }}
+                </p>
+
+                {{ end }}
+
+
+                <div class="activity-meta">
+
+                    {{ with .Params.speaker }}
+
+                    {{ if ne . "" }}
+
+                    <span>
+                        👤 {{ . }}
+                    </span>
+
+                    {{ end }}
+
+                    {{ end }}
+
+
+                    {{ with .Params.institution }}
+
+                    {{ if ne . "" }}
+
+                    <span>
+                        ◦ {{ . }}
+                    </span>
+
+                    {{ end }}
+
+                    {{ end }}
+
+
+                    {{ with .Params.location }}
+
+                    {{ if ne . "" }}
+
+                    <span>
+                        ◦ {{ . }}
+                    </span>
+
+                    {{ end }}
+
+                    {{ end }}
+
+                </div>
+
+            </div>
+
+        </article>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+{{ end }}

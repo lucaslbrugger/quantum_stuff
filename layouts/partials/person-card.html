@@ -1,0 +1,76 @@
+<a href="{{ .RelPermalink }}"
+   class="person-card">
+
+
+    <!-- FOTO -->
+
+    <div class="person-photo">
+
+        {{ if .Params.photo }}
+
+            <img
+                src="{{ .Params.photo }}"
+                alt="{{ .Params.name }}"
+                loading="lazy"
+            >
+
+        {{ else }}
+
+            <div class="person-photo-placeholder">
+
+                <span>
+                    {{ substr .Params.name 0 1 }}
+                </span>
+
+            </div>
+
+        {{ end }}
+
+    </div>
+
+
+    <!-- INFORMAÇÕES -->
+
+    <div class="person-info">
+
+        <h2>
+            {{ .Params.name }}
+        </h2>
+
+        <p class="person-role">
+            {{ .Params.role }}
+        </p>
+
+        {{ with .Params.short_bio }}
+
+            <p class="person-short-bio">
+                {{ . }}
+            </p>
+
+        {{ end }}
+
+        {{ with .Params.research }}
+
+            <div class="person-research">
+
+                {{ range first 2 . }}
+
+                    <span>
+                        {{ . }}
+                    </span>
+
+                {{ end }}
+
+            </div>
+
+        {{ end }}
+
+    </div>
+
+
+    <span class="person-arrow">
+        →
+    </span>
+
+
+</a>

@@ -1,0 +1,114 @@
+{{ define "main" }}
+
+<section class="visitors-page">
+
+    <div class="page-header">
+
+        <span class="section-label">
+            COLABORAÇÕES
+        </span>
+
+        <h1>
+            {{ .Title }}
+        </h1>
+
+        {{ with .Params.description }}
+        <p>
+            {{ . }}
+        </p>
+        {{ end }}
+
+    </div>
+
+
+    <div class="visitors-intro">
+
+        <p>
+            O Quantum Stuff Group recebe pesquisadores e estudantes
+            de diferentes instituições para períodos de colaboração,
+            intercâmbio e desenvolvimento conjunto de pesquisas.
+        </p>
+
+    </div>
+
+
+    <div class="visitors-list">
+
+        {{ range .Pages.ByDate.Reverse }}
+
+        <article class="visitor-card">
+
+            <div class="visitor-period">
+
+                {{ with .Params.period }}
+                <span class="visitor-period-text">
+                    {{ . }}
+                </span>
+                {{ end }}
+
+            </div>
+
+
+           <div class="visitor-content">
+
+    <div class="visitor-info">
+
+        <span class="visitor-label">
+            VISITANTE
+        </span>
+
+        <h2>
+            {{ .Title }}
+        </h2>
+
+        {{ with .Params.institution }}
+
+        <p class="visitor-institution">
+            {{ . }}
+        </p>
+
+        {{ end }}
+
+        {{ with .Params.research }}
+
+        <p class="visitor-research">
+            {{ . }}
+        </p>
+
+        {{ end }}
+
+        {{ with .Content }}
+
+        <div class="visitor-description">
+            {{ . }}
+        </div>
+
+        {{ end }}
+
+    </div>
+
+
+    {{ with .Params.photo }}
+
+    <div class="visitor-photo">
+
+        <img
+            src="{{ printf "images/visitors/%s" . | relURL }}"
+            alt="Foto de {{ $.Title }}"
+        >
+
+    </div>
+
+    {{ end }}
+
+</div>
+
+        </article>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+{{ end }}

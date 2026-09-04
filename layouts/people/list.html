@@ -1,0 +1,227 @@
+{{ define "main" }}
+
+<section class="people-page">
+
+    <div class="container">
+
+        <!-- =========================================
+             CABEÇALHO
+        ========================================== -->
+
+        <div class="page-header">
+
+            <p class="eyebrow">
+                QUEM SOMOS
+            </p>
+
+            <h1>
+                Pessoas
+            </h1>
+
+            <p class="page-description">
+                Conheça os pesquisadores, estudantes e
+                colaboradores que fazem parte do grupo.
+            </p>
+
+        </div>
+
+
+        <!-- =========================================
+             PROFESSORES
+        ========================================== -->
+
+        {{ $professors := where .Pages "Params.group" "Professores" }}
+
+        {{ if $professors }}
+
+        <section class="people-group">
+
+            <div class="people-group-header">
+
+                <p class="eyebrow">
+                    DOCENTES
+                </p>
+
+                <h2>
+                    Professores
+                </h2>
+
+            </div>
+
+
+            <div class="people-grid">
+
+                {{ range $professors.ByWeight }}
+
+                    {{ partial "person-card.html" . }}
+
+                {{ end }}
+
+            </div>
+
+        </section>
+
+        {{ end }}
+
+
+
+        <!-- =========================================
+             DOUTORANDOS
+        ========================================== -->
+
+        {{ $phd := where .Pages "Params.group" "Doutorandos" }}
+
+        {{ if $phd }}
+
+        <section class="people-group">
+
+            <div class="people-group-header">
+
+                <p class="eyebrow">
+                    PÓS-GRADUAÇÃO
+                </p>
+
+                <h2>
+                    Doutorandos
+                </h2>
+
+            </div>
+
+
+            <div class="people-grid">
+
+                {{ range $phd.ByWeight }}
+
+                    {{ partial "person-card.html" . }}
+
+                {{ end }}
+
+            </div>
+
+        </section>
+
+        {{ end }}
+
+
+
+        <!-- =========================================
+             MESTRANDOS
+        ========================================== -->
+
+        {{ $masters := where .Pages "Params.group" "Mestrandos" }}
+
+        {{ if $masters }}
+
+        <section class="people-group">
+
+            <div class="people-group-header">
+
+                <p class="eyebrow">
+                    PÓS-GRADUAÇÃO
+                </p>
+
+                <h2>
+                    Mestrandos
+                </h2>
+
+            </div>
+
+
+            <div class="people-grid">
+
+                {{ range $masters.ByWeight }}
+
+                    {{ partial "person-card.html" . }}
+
+                {{ end }}
+
+            </div>
+
+        </section>
+
+        {{ end }}
+
+
+
+        <!-- =========================================
+             GRADUANDOS
+        ========================================== -->
+
+        {{ $undergrad := where .Pages "Params.group" "Graduandos" }}
+
+        {{ if $undergrad }}
+
+        <section class="people-group">
+
+            <div class="people-group-header">
+
+                <p class="eyebrow">
+                    GRADUAÇÃO
+                </p>
+
+                <h2>
+                    Graduandos
+                </h2>
+
+            </div>
+
+
+            <div class="people-grid">
+
+                {{ range $undergrad.ByWeight }}
+
+                    {{ partial "person-card.html" . }}
+
+                {{ end }}
+
+            </div>
+
+        </section>
+
+        {{ end }}
+
+
+
+        <!-- =========================================
+             COLABORADORES
+        ========================================== -->
+
+        {{ $collaborators := where .Pages "Params.group" "Colaboradores" }}
+
+        {{ if $collaborators }}
+
+        <section class="people-group">
+
+            <div class="people-group-header">
+
+                <p class="eyebrow">
+                    COLABORAÇÃO
+                </p>
+
+                <h2>
+                    Colaboradores
+                </h2>
+
+            </div>
+
+
+            <div class="people-grid">
+
+                {{ range $collaborators.ByWeight }}
+
+                    {{ partial "person-card.html" . }}
+
+                {{ end }}
+
+            </div>
+
+        </section>
+
+        {{ end }}
+
+
+    </div>
+
+</section>
+
+{{ end }}

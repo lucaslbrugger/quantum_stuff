@@ -1,0 +1,94 @@
+{{ define "main" }}
+
+<section class="activity-single">
+
+    <a href="{{ "activities/" | relURL }}" class="back-link">
+        ← Voltar para Atividades
+    </a>
+
+
+    <header class="activity-single-header">
+
+        <span class="activity-type">
+            {{ .Params.type }}
+        </span>
+
+        <h1>{{ .Title }}</h1>
+
+        <p class="activity-single-date">
+            {{ .Date.Format "02/01/2006" }}
+        </p>
+
+    </header>
+
+
+    <div class="activity-single-grid">
+
+        <main class="activity-single-content">
+
+            {{ .Content }}
+
+        </main>
+
+
+        <aside class="activity-details">
+
+            <h2>Informações</h2>
+
+
+            {{ with .Params.speaker }}
+            {{ if ne . "" }}
+
+            <div class="activity-detail">
+
+                <span>Pesquisador</span>
+                <strong>{{ . }}</strong>
+
+            </div>
+
+            {{ end }}
+            {{ end }}
+
+
+            {{ with .Params.institution }}
+            {{ if ne . "" }}
+
+            <div class="activity-detail">
+
+                <span>Instituição</span>
+                <strong>{{ . }}</strong>
+
+            </div>
+
+            {{ end }}
+            {{ end }}
+
+
+            {{ with .Params.location }}
+            {{ if ne . "" }}
+
+            <div class="activity-detail">
+
+                <span>Local</span>
+                <strong>{{ . }}</strong>
+
+            </div>
+
+            {{ end }}
+            {{ end }}
+
+
+            <div class="activity-detail">
+
+                <span>Data</span>
+                <strong>{{ .Date.Format "02/01/2006" }}</strong>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</section>
+
+{{ end }}
