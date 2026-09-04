@@ -1,4 +1,4 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://lucaslbrugger.github.io/quantum_stuff/"
 title = "Quantum Stuff Group"
 
 buildFuture = true
