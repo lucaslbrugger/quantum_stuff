@@ -3,5 +3,18 @@ title = "Quantum Stuff Group"
 
 buildFuture = true
 
+defaultContentLanguage = "pt"
+defaultContentLanguageInSubdir = false
+
+[languages]
+
+    [languages.pt]
+        label = "Português"
+        weight = 1
+
+    [languages.en]
+        label = "English"
+        weight = 2
+
 [params]
     description = "Grupo de pesquisa em Física e em Fundamentos de Mecânica Quântica da Universidade Federal de Juiz de Fora."

@@ -21,104 +21,256 @@
     </div>
 
 
-    <div class="activities-timeline">
+    {{/* =========================================================
+         PRÓXIMAS ATIVIDADES
+         ========================================================= */}}
 
-        {{ range .Pages.ByDate }}
+    {{ $today := now.Format "2006-01-02" }}
 
-        <article class="activity-item">
+    {{ $upcoming := slice }}
 
-            <div class="activity-date">
+    {{ range .Pages.ByDate }}
 
-                <span class="activity-day">
-                    {{ .Date.Format "02" }}
-                </span>
+        {{ $activityDate := .Date.Format "2006-01-02" }}
 
-                <span class="activity-month">
-                    {{ upper (.Date.Format "Jan") }}
-                </span>
+        {{ if ge $activityDate $today }}
 
-                <span class="activity-year">
-                    {{ .Date.Format "2006" }}
-                </span>
-
-            </div>
-
-
-            <div class="activity-line">
-                <span></span>
-            </div>
-
-
-            <div class="activity-content">
-
-                <span class="activity-type">
-                    {{ .Params.type }}
-                </span>
-
-
-                <h2>
-                    {{ .Title }}
-                </h2>
-
-
-                {{ with .Params.description }}
-
-                <p>
-                    {{ . }}
-                </p>
-
-                {{ end }}
-
-
-                <div class="activity-meta">
-
-                    {{ with .Params.speaker }}
-
-                    {{ if ne . "" }}
-
-                    <span>
-                        👤 {{ . }}
-                    </span>
-
-                    {{ end }}
-
-                    {{ end }}
-
-
-                    {{ with .Params.institution }}
-
-                    {{ if ne . "" }}
-
-                    <span>
-                        ◦ {{ . }}
-                    </span>
-
-                    {{ end }}
-
-                    {{ end }}
-
-
-                    {{ with .Params.location }}
-
-                    {{ if ne . "" }}
-
-                    <span>
-                        ◦ {{ . }}
-                    </span>
-
-                    {{ end }}
-
-                    {{ end }}
-
-                </div>
-
-            </div>
-
-        </article>
+            {{ $upcoming = $upcoming | append . }}
 
         {{ end }}
 
+    {{ end }}
+
+
+    {{ if gt (len $upcoming) 0 }}
+
+    <div class="activities-section">
+
+        <div class="activities-section-header">
+
+            <span class="section-label">
+                PRÓXIMAS
+            </span>
+
+            <h2>
+                Próximas atividades
+            </h2>
+
+        </div>
+
+
+        <div class="activities-timeline">
+
+            {{ range $upcoming }}
+
+            <article class="activity-item">
+
+                <div class="activity-date">
+
+                    <span class="activity-day">
+                        {{ .Date.Format "02" }}
+                    </span>
+
+                    <span class="activity-month">
+                        {{ upper (.Date.Format "Jan") }}
+                    </span>
+
+                    <span class="activity-year">
+                        {{ .Date.Format "2006" }}
+                    </span>
+
+                </div>
+
+
+                <div class="activity-line">
+                    <span></span>
+                </div>
+
+
+                <div class="activity-content">
+
+                    <span class="activity-type">
+                        {{ .Params.type }}
+                    </span>
+
+
+                    <h2>
+                        {{ .Title }}
+                    </h2>
+
+
+                    {{ with .Params.description }}
+
+                    <p>
+                        {{ . }}
+                    </p>
+
+                    {{ end }}
+
+
+                    <div class="activity-meta">
+
+                        {{ with .Params.speaker }}
+
+                        {{ if ne . "" }}
+
+                        <span>
+                            👤 {{ . }}
+                        </span>
+
+                        {{ end }}
+
+                        {{ end }}
+
+
+                        {{ with .Params.institution }}
+
+                        {{ if ne . "" }}
+
+                        <span>
+                            ◦ {{ . }}
+                        </span>
+
+                        {{ end }}
+
+                        {{ end }}
+
+
+                        {{ with .Params.location }}
+
+                        {{ if ne . "" }}
+
+                        <span>
+                            ◦ {{ . }}
+                        </span>
+
+                        {{ end }}
+
+                        {{ end }}
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            {{ end }}
+
+        </div>
+
     </div>
+
+    {{ end }}
+
+
+
+    {{/* =========================================================
+         ATIVIDADES REALIZADAS
+         ========================================================= */}}
+
+    {{ $past := slice }}
+
+    {{ range .Pages.ByDate.Reverse }}
+
+        {{ $activityDate := .Date.Format "2006-01-02" }}
+
+        {{ if lt $activityDate $today }}
+
+            {{ $past = $past | append . }}
+
+        {{ end }}
+
+    {{ end }}
+
+
+    {{ if gt (len $past) 0 }}
+
+    <div class="activities-history">
+
+        <div class="activities-section-header">
+
+            <span class="section-label">
+                HISTÓRICO
+            </span>
+
+            <h2>
+                Atividades realizadas
+            </h2>
+
+        </div>
+
+
+        <div class="activities-past-list">
+
+            {{ range $past }}
+
+            <article class="activity-past-item">
+
+                <div class="activity-past-date">
+
+                    <strong>
+                        {{ .Date.Format "02" }}
+                    </strong>
+
+                    <span>
+                        {{ upper (.Date.Format "Jan") }}
+                        {{ .Date.Format "2006" }}
+                    </span>
+
+                </div>
+
+
+                <div class="activity-past-info">
+
+                    <span class="activity-past-type">
+                        {{ .Params.type }}
+                    </span>
+
+                    <h3>
+                        {{ .Title }}
+                    </h3>
+
+
+                    <div class="activity-past-meta">
+
+                        {{ with .Params.speaker }}
+
+                        {{ if ne . "" }}
+
+                        <span>
+                            👤 {{ . }}
+                        </span>
+
+                        {{ end }}
+
+                        {{ end }}
+
+
+                        {{ with .Params.institution }}
+
+                        {{ if ne . "" }}
+
+                        <span>
+                            ◦ {{ . }}
+                        </span>
+
+                        {{ end }}
+
+                        {{ end }}
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            {{ end }}
+
+        </div>
+
+    </div>
+
+    {{ end }}
 
 </section>
 

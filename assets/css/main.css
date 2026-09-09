@@ -5980,3 +5980,130 @@ em {
 .research-section {
     background: #d4e6da;
 }
+
+/* =========================================================
+   HISTÓRICO DE ATIVIDADES
+   ========================================================= */
+
+.activities-history {
+    margin-top: 100px;
+    padding-top: 70px;
+    border-top: 1px solid var(--border);
+}
+
+.activities-history .activities-section-header {
+    margin-bottom: 35px;
+}
+
+.activities-past-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.activity-past-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 30px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(45, 91, 61, 0.08);
+    opacity: 0.55;
+    transition: opacity 0.25s ease;
+}
+
+.activity-past-item:hover {
+    opacity: 0.8;
+}
+
+.activity-past-date {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.activity-past-date strong {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--green-dark);
+}
+
+.activity-past-date span {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.activity-past-info {
+    min-width: 0;
+}
+
+.activity-past-type {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+}
+
+.activity-past-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(45, 91, 61, 0.35);
+}
+
+.activity-past-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 7px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   ESPAÇAMENTO ENTRE PRÓXIMAS ATIVIDADES E HISTÓRICO
+   ========================================================= */
+
+.activities-section-header h2 {
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .activities-history {
+        margin-top: 75px;
+        padding-top: 50px;
+    }
+
+    .activity-past-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 20px 0;
+    }
+
+    .activity-past-date {
+        gap: 7px;
+    }
+
+    .activity-past-date strong {
+        font-size: 1.3rem;
+    }
+
+    .activity-past-info h3 {
+        font-size: 0.95rem;
+    }
+
+}

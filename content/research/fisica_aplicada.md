@@ -1,7 +1,8 @@
 ---
 title: "Física Aplicada"
 description: "Investigações envolvendo aplicações de conceitos e métodos da física em diferentes contextos."
-weight: 2
+weight: 3
+key: "applied-physics"
 ---
 A frente de Física Aplicada reúne pesquisas que exploram conceitos, métodos e ferramentas da física na investigação de diferentes sistemas e problemas.
 

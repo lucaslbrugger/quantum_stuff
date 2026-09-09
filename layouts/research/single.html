@@ -2,55 +2,98 @@
 
 <section class="research-single">
 
-    <a href="{{ "research/" | relURL }}" class="back-link">
-        ← Voltar para Pesquisa
+
+    <a
+        href="{{ "research/" | relLangURL }}"
+        class="back-link"
+    >
+
+        ← {{ i18n "research.back" }}
+
     </a>
+
+
 
     <header class="research-single-header">
 
-        <span class="section-label">FRENTE DE PESQUISA</span>
+        <span class="section-label">
+            {{ i18n "research.eyebrow_single" }}
+        </span>
 
-        <h1>{{ .Title }}</h1>
+
+        <h1>
+            {{ .Title }}
+        </h1>
+
 
         {{ with .Params.description }}
-        <p class="research-single-description">{{ . }}</p>
+
+        <p class="research-single-description">
+            {{ . }}
+        </p>
+
         {{ end }}
 
     </header>
 
 
+
     <div class="research-single-content">
 
+
         <div class="research-text">
+
             {{ .Content }}
+
         </div>
+
 
 
         <div class="research-members">
 
-            <h2>Pesquisadores</h2>
+            <h2>
+                {{ i18n "research.researchers" }}
+            </h2>
+
 
             <div class="research-member-list">
 
                 {{ range where site.RegularPages "Section" "people" }}
 
-                    {{ if in .Params.research $.Title }}
+                    {{ if or
+                        (in .Params.research $.Params.key)
+                        (in .Params.research $.Title)
+                        (in .Params.research $.Params.legacy_name)
+                    }}
 
-                        <a href="{{ .RelPermalink }}" class="research-member">
-                            
-                            {{ if .Params.photo }}
-                            <img 
-                                src="{{ .Params.photo | relURL }}" 
-                                alt="{{ .Params.name }}"
-                            >
-                            {{ end }}
+                    <a
+                        href="{{ .RelPermalink }}"
+                        class="research-member"
+                    >
 
-                            <div>
-                                <strong>{{ .Params.name }}</strong>
-                                <span>{{ .Params.role }}</span>
-                            </div>
+                        {{ if .Params.photo }}
 
-                        </a>
+                        <img
+                            src="{{ .Params.photo | relURL }}"
+                            alt="{{ .Params.name }}"
+                        >
+
+                        {{ end }}
+
+
+                        <div>
+
+                            <strong>
+                                {{ .Params.name }}
+                            </strong>
+
+                            <span>
+                                {{ .Params.role }}
+                            </span>
+
+                        </div>
+
+                    </a>
 
                     {{ end }}
 

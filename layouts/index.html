@@ -20,46 +20,49 @@
         <div class="hero-text">
 
             <p class="eyebrow">
-                GRUPO DE PESQUISA · UFJF
+                {{ i18n "home.hero.eyebrow" }}
             </p>
 
 
             <h1>
-                Explorando<br>
-                novas formas de<br>
-                <span>compreender.</span>
+                {{ i18n "home.hero.title_line1" }}<br>
+                {{ i18n "home.hero.title_line2" }}<br>
+                <span>{{ i18n "home.hero.title_line3" }}</span>
             </h1>
 
 
             <p class="hero-description">
-                Investigamos problemas fundamentais da Física
-                a partir de diferentes perspectivas, conectando
-                teoria, informação e novas formas de pensar
-                os sistemas físicos.
+                {{ i18n "home.hero.description" }}
             </p>
 
 
             <div class="hero-actions">
 
                 <a
-                    href="{{ "research/" | relURL }}"
+                    href="{{ "research/" | relLangURL }}"
                     class="button button-primary"
                 >
-                    Nossas pesquisas
+
+                    {{ i18n "home.hero.research_button" }}
+
                     <span>→</span>
+
                 </a>
 
 
                 <a
-                    href="{{ "people/" | relURL }}"
+                    href="{{ "people/" | relLangURL }}"
                     class="button button-secondary"
                 >
-                    Conheça o grupo
+
+                    {{ i18n "home.hero.people_button" }}
+
                 </a>
 
             </div>
 
         </div>
+
 
 
         <div class="hero-visual">
@@ -84,6 +87,7 @@
 </section>
 
 
+
 <!-- =========================================
      INTRODUÇÃO
 ========================================= -->
@@ -95,40 +99,44 @@
         <div>
 
             <p class="eyebrow">
-                SOBRE O GRUPO
+                {{ i18n "home.intro.eyebrow" }}
             </p>
 
             <h2>
-                Ciência acontece
-                <em>em conjunto.</em>
+
+                {{ i18n "home.intro.title_line1" }}
+
+                <em>
+                    {{ i18n "home.intro.title_line2" }}
+                </em>
+
             </h2>
 
         </div>
 
 
+
         <div class="intro-text">
 
             <p>
-                Somos um grupo de pesquisadores dedicados
-                ao estudo de problemas em Física, reunindo
-                diferentes perspectivas, experiências e
-                interesses científicos.
+                {{ i18n "home.intro.paragraph1" }}
             </p>
 
 
             <p>
-                Nosso trabalho busca compreender questões
-                fundamentais e desenvolver novas ferramentas
-                para investigá-las.
+                {{ i18n "home.intro.paragraph2" }}
             </p>
 
 
             <a
-                href="{{ "people/" | relURL }}"
+                href="{{ "people/" | relLangURL }}"
                 class="text-link"
             >
-                Saiba mais sobre o grupo
+
+                {{ i18n "home.intro.link" }}
+
                 <span>→</span>
+
             </a>
 
         </div>
@@ -136,6 +144,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================
@@ -151,22 +160,22 @@
             <div>
 
                 <p class="eyebrow">
-                    O QUE FAZEMOS
+                    {{ i18n "home.research.eyebrow" }}
                 </p>
 
                 <h2>
-                    Frentes de pesquisa
+                    {{ i18n "home.research.title" }}
                 </h2>
 
             </div>
 
 
             <p>
-                Conheça as principais frentes
-                de pesquisa do grupo.
+                {{ i18n "home.research.description" }}
             </p>
 
         </div>
+
 
 
         <div class="research-grid">
@@ -189,21 +198,22 @@
 
 
                     <p>
-                        Pesquisa em temas relacionados
-                        à teoria, informação e fundamentos
-                        da física quântica.
+                        {{ i18n "home.research.tiq_description" }}
                     </p>
 
 
                     <a
-                        href="{{ "research/tiq/" | relURL }}"
+                        href="{{ "research/tiq/" | relLangURL }}"
                     >
-                        Explorar →
+
+                        {{ i18n "common.explore" }} →
+
                     </a>
 
                 </div>
 
             </article>
+
 
 
             <!-- FÍSICA APLICADA -->
@@ -218,22 +228,21 @@
                 <div class="research-card-content">
 
                     <h3>
-                        Física Aplicada
+                        {{ i18n "home.research.applied_title" }}
                     </h3>
 
 
                     <p>
-                        Investigação de fenômenos físicos
-                        e desenvolvimento de métodos e
-                        ferramentas aplicados a diferentes
-                        contextos.
+                        {{ i18n "home.research.applied_description" }}
                     </p>
 
 
                     <a
-                        href="{{ "research/fisica-aplicada/" | relURL }}"
+                        href="{{ "research/fisica-aplicada/" | relLangURL }}"
                     >
-                        Explorar →
+
+                        {{ i18n "common.explore" }} →
+
                     </a>
 
                 </div>
@@ -246,6 +255,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================
@@ -261,25 +271,29 @@
             <div>
 
                 <p class="eyebrow">
-                    AGENDA
+                    {{ i18n "home.activities.eyebrow" }}
                 </p>
 
                 <h2>
-                    Próximas atividades
+                    {{ i18n "home.activities.title" }}
                 </h2>
 
             </div>
 
 
             <a
-                href="{{ "activities/" | relURL }}"
+                href="{{ "activities/" | relLangURL }}"
                 class="text-link"
             >
-                Ver cronograma completo
+
+                {{ i18n "common.view_schedule" }}
+
                 <span>→</span>
+
             </a>
 
         </div>
+
 
 
         <div class="event-list">
@@ -309,6 +323,7 @@
                 </div>
 
 
+
                 <div class="event-info">
 
                     <span class="event-type">
@@ -324,12 +339,16 @@
                     <p>
 
                         {{ with .Params.speaker }}
+
                             {{ . }}
+
                         {{ end }}
 
 
                         {{ with .Params.institution }}
+
                             · {{ . }}
+
                         {{ end }}
 
                     </p>
@@ -345,12 +364,6 @@
     </div>
 
 </section>
-
-
-<!-- =========================================
-     CTA
-========================================= -->
-
 
 
 {{ end }}
