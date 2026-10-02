@@ -3,10 +3,15 @@
 <section class="publication-single">
 
     <a
-        href="{{ "publications/" | relURL }}"
+        href="{{ "publications/" | relLangURL }}"
         class="back-link"
     >
-        ← Voltar para Publicações
+        ←
+        {{ if eq .Language.Lang "en" }}
+            Back to Publications
+        {{ else }}
+            Voltar para Publicações
+        {{ end }}
     </a>
 
 
@@ -40,7 +45,11 @@
             <section class="publication-section">
 
                 <h2>
-                    Autores
+                    {{ if eq $.Language.Lang "en" }}
+                        Authors
+                    {{ else }}
+                        Autores
+                    {{ end }}
                 </h2>
 
                 <p class="publication-authors-large">
@@ -58,7 +67,11 @@
             <section class="publication-section">
 
                 <h2>
-                    Publicado em
+                    {{ if eq $.Language.Lang "en" }}
+                        Published in
+                    {{ else }}
+                        Publicado em
+                    {{ end }}
                 </h2>
 
                 <p>
@@ -74,7 +87,11 @@
             <section class="publication-section">
 
                 <h2>
-                    Resumo
+                    {{ if eq $.Language.Lang "en" }}
+                        Abstract
+                    {{ else }}
+                        Resumo
+                    {{ end }}
                 </h2>
 
                 <div class="publication-abstract">
@@ -91,14 +108,22 @@
         <aside class="publication-details">
 
             <h2>
-                Informações
+                {{ if eq .Language.Lang "en" }}
+                    Information
+                {{ else }}
+                    Informações
+                {{ end }}
             </h2>
 
 
             <div class="publication-detail">
 
                 <span>
-                    Ano
+                    {{ if eq $.Language.Lang "en" }}
+                        Year
+                    {{ else }}
+                        Ano
+                    {{ end }}
                 </span>
 
                 <strong>
@@ -150,7 +175,11 @@
                     target="_blank"
                     rel="noopener"
                 >
-                    Ver no arXiv
+                    {{ if eq $.Language.Lang "en" }}
+                        View on arXiv
+                    {{ else }}
+                        Ver no arXiv
+                    {{ end }}
                 </a>
 
             </div>
@@ -171,7 +200,11 @@
                 target="_blank"
                 rel="noopener"
             >
-                Acessar publicação →
+                {{ if eq $.Language.Lang "en" }}
+                    Access publication →
+                {{ else }}
+                    Acessar publicação →
+                {{ end }}
             </a>
 
             {{ end }}

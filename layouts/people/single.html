@@ -4,13 +4,17 @@
 
     <div class="container">
 
-
         <!-- VOLTAR -->
 
-        <a href="{{ "/people/" | relURL }}"
+        <a href="{{ "people/" | relLangURL }}"
            class="back-link">
 
-            ← Voltar para pessoas
+            ←
+            {{ if eq .Lang "en" }}
+                Back to People
+            {{ else }}
+                Voltar para pessoas
+            {{ end }}
 
         </a>
 
@@ -26,7 +30,7 @@
 
                     <img
                         src="{{ .Params.photo | relURL }}"
-                            alt="{{ .Params.name }}"
+                        alt="{{ .Params.name }}"
                     >
 
                 {{ else }}
@@ -107,15 +111,16 @@
 
                     {{ end }}
 
+
                     {{ with .Params.lattes }}
 
                         <a href="{{ . }}"
-                         target="_blank"
-                         rel="noopener">
+                           target="_blank"
+                           rel="noopener">
 
-                        Lattes
+                            Lattes
 
-                         </a>
+                        </a>
 
                     {{ end }}
 
@@ -157,7 +162,13 @@
         <div class="person-biography">
 
             <p class="eyebrow">
-                SOBRE
+
+                {{ if eq .Lang "en" }}
+                    ABOUT
+                {{ else }}
+                    SOBRE
+                {{ end }}
+
             </p>
 
             <div class="prose">

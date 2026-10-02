@@ -26,26 +26,31 @@
 "footer.motto": "Science · Research · Collaboration"
 
 "home.hero.eyebrow": "RESEARCH GROUP · UFJF"
-"home.hero.title_line1": "Exploring"
-"home.hero.title_line2": "new ways of"
-"home.hero.title_line3": "understanding."
-"home.hero.description": "We investigate fundamental problems in Physics from different perspectives, connecting theory, information, and new ways of thinking about physical systems."
+"home.hero.title_line1": "Understanding"
+"home.hero.title_line2": "quantum physics"
+"home.hero.title_line3": "from different perspectives."
+"home.hero.description": "Quantum Stuff Group brings together researchers interested in understanding quantum theory from different perspectives, connecting quantum information, foundations, mathematics, and computation."
 "home.hero.research_button": "Our research"
 "home.hero.people_button": "Meet the group"
 
 "home.intro.eyebrow": "ABOUT THE GROUP"
-"home.intro.title_line1": "Science happens"
-"home.intro.title_line2": "together."
-"home.intro.paragraph1": "We are a group of researchers dedicated to the study of problems in Physics, bringing together different perspectives, experiences, and scientific interests."
-"home.intro.paragraph2": "Our work seeks to understand fundamental questions and develop new tools to investigate them."
+"home.intro.title_line1": "Different perspectives,"
+"home.intro.title_line2": "one shared investigation."
+"home.intro.paragraph1": "We are a research group in Physics at the Federal University of Juiz de Fora dedicated to studying questions related to quantum theory, information, and its foundations."
+"home.intro.paragraph2": "We bring together different perspectives and tools — from conceptual and mathematical investigation to computation and applications — to explore new ways of understanding and describing physical systems."
 "home.intro.link": "Learn more about the group"
 
-"home.research.eyebrow": "WHAT WE DO"
-"home.research.title": "Research areas"
+"home.research.eyebrow": "RESEARCH AREAS"
+"home.research.title": "Research fronts"
 "home.research.description": "Explore the main research areas of the group."
-"home.research.tiq_description": "Research on topics related to quantum theory, information, and the foundations of quantum physics."
+
+"home.research.tiq_description": "Investigation of problems involving quantum information, processes, and systems through different theoretical, mathematical, and computational approaches."
+
+"home.research.foundations_title": "Foundations of Quantum Mechanics"
+"home.research.foundations_description": "Study of conceptual and structural questions in quantum theory, exploring different ways of understanding, interpreting, and describing its phenomena."
+
 "home.research.applied_title": "Applied Physics"
-"home.research.applied_description": "Investigation of physical phenomena and development of methods and tools applied to different contexts."
+"home.research.applied_description": "Application of physical, mathematical, and computational methods to problems in different contexts, including simulation, computation, and physics education."
 
 "home.activities.eyebrow": "SCHEDULE"
 "home.activities.title": "Upcoming activities"

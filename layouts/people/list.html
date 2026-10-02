@@ -11,16 +11,29 @@
         <div class="page-header">
 
             <p class="eyebrow">
-                QUEM SOMOS
+                {{ if eq .Lang "en" }}
+                    WHO WE ARE
+                {{ else }}
+                    QUEM SOMOS
+                {{ end }}
             </p>
 
             <h1>
-                Pessoas
+                {{ if eq .Lang "en" }}
+                    People
+                {{ else }}
+                    Pessoas
+                {{ end }}
             </h1>
 
             <p class="page-description">
-                Conheça os pesquisadores, estudantes e
-                colaboradores que fazem parte do grupo.
+                {{ if eq .Lang "en" }}
+                    Meet the researchers, students, and
+                    collaborators who are part of the group.
+                {{ else }}
+                    Conheça os pesquisadores, estudantes e
+                    colaboradores que fazem parte do grupo.
+                {{ end }}
             </p>
 
         </div>
@@ -30,192 +43,400 @@
              PROFESSORES
         ========================================== -->
 
-        {{ $professors := where .Pages "Params.group" "Professores" }}
+        {{ if eq .Lang "en" }}
 
-        {{ if $professors }}
+            {{ $professors := where .Pages "Params.role" "in" (slice
+                "Professor"
+                "Full Professor"
+                "Invited Professor"
+            ) }}
 
-        <section class="people-group">
+        {{ else }}
 
-            <div class="people-group-header">
-
-                <p class="eyebrow">
-                    DOCENTES
-                </p>
-
-                <h2>
-                    Professores
-                </h2>
-
-            </div>
-
-
-            <div class="people-grid">
-
-                {{ range $professors.ByWeight }}
-
-                    {{ partial "person-card.html" . }}
-
-                {{ end }}
-
-            </div>
-
-        </section>
+            {{ $professors := where .Pages "Params.role" "in" (slice
+                "Professor"
+                "Professor Titular"
+                "Professor Convidado"
+            ) }}
 
         {{ end }}
 
+
+        {{ if eq .Lang "en" }}
+
+            {{ $professors := where .Pages "Params.role" "in" (slice
+                "Professor"
+                "Full Professor"
+                "Invited Professor"
+            ) }}
+
+            {{ if $professors }}
+
+            <section class="people-group">
+
+                <div class="people-group-header">
+
+                    <p class="eyebrow">
+                        FACULTY
+                    </p>
+
+                    <h2>
+                        Professors
+                    </h2>
+
+                </div>
+
+                <div class="people-grid">
+
+                    {{ range $professors.ByTitle }}
+
+                        {{ partial "person-card.html" . }}
+
+                    {{ end }}
+
+                </div>
+
+            </section>
+
+            {{ end }}
+
+        {{ else }}
+
+            {{ $professors := where .Pages "Params.role" "in" (slice
+                "Professor"
+                "Professor Titular"
+                "Professor Convidado"
+            ) }}
+
+            {{ if $professors }}
+
+            <section class="people-group">
+
+                <div class="people-group-header">
+
+                    <p class="eyebrow">
+                        DOCENTES
+                    </p>
+
+                    <h2>
+                        Professores
+                    </h2>
+
+                </div>
+
+                <div class="people-grid">
+
+                    {{ range $professors.ByTitle }}
+
+                        {{ partial "person-card.html" . }}
+
+                    {{ end }}
+
+                </div>
+
+            </section>
+
+            {{ end }}
+
+        {{ end }}
 
 
         <!-- =========================================
              DOUTORANDOS
         ========================================== -->
 
-        {{ $phd := where .Pages "Params.group" "Doutorandos" }}
+        {{ if eq .Lang "en" }}
 
-        {{ if $phd }}
+            {{ $phd := where .Pages "Params.role" "PhD Student" }}
 
-        <section class="people-group">
+            {{ if $phd }}
 
-            <div class="people-group-header">
+            <section class="people-group">
 
-                <p class="eyebrow">
-                    PÓS-GRADUAÇÃO
-                </p>
+                <div class="people-group-header">
 
-                <h2>
-                    Doutorandos
-                </h2>
+                    <p class="eyebrow">
+                        GRADUATE STUDIES
+                    </p>
 
-            </div>
+                    <h2>
+                        PhD Students
+                    </h2>
 
+                </div>
 
-            <div class="people-grid">
+                <div class="people-grid">
 
-                {{ range $phd.ByWeight }}
+                    {{ range $phd.ByTitle }}
 
-                    {{ partial "person-card.html" . }}
+                        {{ partial "person-card.html" . }}
 
-                {{ end }}
+                    {{ end }}
 
-            </div>
+                </div>
 
-        </section>
+            </section>
+
+            {{ end }}
+
+        {{ else }}
+
+            {{ $phd := where .Pages "Params.role" "Doutorando" }}
+
+            {{ if $phd }}
+
+            <section class="people-group">
+
+                <div class="people-group-header">
+
+                    <p class="eyebrow">
+                        PÓS-GRADUAÇÃO
+                    </p>
+
+                    <h2>
+                        Doutorandos
+                    </h2>
+
+                </div>
+
+                <div class="people-grid">
+
+                    {{ range $phd.ByTitle }}
+
+                        {{ partial "person-card.html" . }}
+
+                    {{ end }}
+
+                </div>
+
+            </section>
+
+            {{ end }}
 
         {{ end }}
-
 
 
         <!-- =========================================
              MESTRANDOS
         ========================================== -->
 
-        {{ $masters := where .Pages "Params.group" "Mestrandos" }}
+        {{ if eq .Lang "en" }}
 
-        {{ if $masters }}
+            {{ $masters := where .Pages "Params.role" "Master's Student" }}
 
-        <section class="people-group">
+            {{ if $masters }}
 
-            <div class="people-group-header">
+            <section class="people-group">
 
-                <p class="eyebrow">
-                    PÓS-GRADUAÇÃO
-                </p>
+                <div class="people-group-header">
 
-                <h2>
-                    Mestrandos
-                </h2>
+                    <p class="eyebrow">
+                        GRADUATE STUDIES
+                    </p>
 
-            </div>
+                    <h2>
+                        Master's Students
+                    </h2>
 
+                </div>
 
-            <div class="people-grid">
+                <div class="people-grid">
 
-                {{ range $masters.ByWeight }}
+                    {{ range $masters.ByTitle }}
 
-                    {{ partial "person-card.html" . }}
+                        {{ partial "person-card.html" . }}
 
-                {{ end }}
+                    {{ end }}
 
-            </div>
+                </div>
 
-        </section>
+            </section>
+
+            {{ end }}
+
+        {{ else }}
+
+            {{ $masters := where .Pages "Params.role" "Mestrando" }}
+
+            {{ if $masters }}
+
+            <section class="people-group">
+
+                <div class="people-group-header">
+
+                    <p class="eyebrow">
+                        PÓS-GRADUAÇÃO
+                    </p>
+
+                    <h2>
+                        Mestrandos
+                    </h2>
+
+                </div>
+
+                <div class="people-grid">
+
+                    {{ range $masters.ByTitle }}
+
+                        {{ partial "person-card.html" . }}
+
+                    {{ end }}
+
+                </div>
+
+            </section>
+
+            {{ end }}
 
         {{ end }}
-
 
 
         <!-- =========================================
              GRADUANDOS
         ========================================== -->
 
-        {{ $undergrad := where .Pages "Params.group" "Graduandos" }}
+        {{ if eq .Lang "en" }}
 
-        {{ if $undergrad }}
+            {{ $undergrad := where .Pages "Params.role" "Undergraduate Research Student" }}
 
-        <section class="people-group">
+            {{ if $undergrad }}
 
-            <div class="people-group-header">
+            <section class="people-group">
 
-                <p class="eyebrow">
-                    GRADUAÇÃO
-                </p>
+                <div class="people-group-header">
 
-                <h2>
-                    Graduandos
-                </h2>
+                    <p class="eyebrow">
+                        UNDERGRADUATE STUDIES
+                    </p>
 
-            </div>
+                    <h2>
+                        Undergraduate Research Students
+                    </h2>
 
+                </div>
 
-            <div class="people-grid">
+                <div class="people-grid">
 
-                {{ range $undergrad.ByWeight }}
+                    {{ range $undergrad.ByTitle }}
 
-                    {{ partial "person-card.html" . }}
+                        {{ partial "person-card.html" . }}
 
-                {{ end }}
+                    {{ end }}
 
-            </div>
+                </div>
 
-        </section>
+            </section>
+
+            {{ end }}
+
+        {{ else }}
+
+            {{ $undergrad := where .Pages "Params.role" "IC" }}
+
+            {{ if $undergrad }}
+
+            <section class="people-group">
+
+                <div class="people-group-header">
+
+                    <p class="eyebrow">
+                        GRADUAÇÃO
+                    </p>
+
+                    <h2>
+                        Graduandos
+                    </h2>
+
+                </div>
+
+                <div class="people-grid">
+
+                    {{ range $undergrad.ByTitle }}
+
+                        {{ partial "person-card.html" . }}
+
+                    {{ end }}
+
+                </div>
+
+            </section>
+
+            {{ end }}
 
         {{ end }}
-
 
 
         <!-- =========================================
              COLABORADORES
         ========================================== -->
 
-        {{ $collaborators := where .Pages "Params.group" "Colaboradores" }}
+        {{ if eq .Lang "en" }}
 
-        {{ if $collaborators }}
+            {{ $collaborators := where .Pages "Params.role" "Collaborator" }}
 
-        <section class="people-group">
+            {{ if $collaborators }}
 
-            <div class="people-group-header">
+            <section class="people-group">
 
-                <p class="eyebrow">
-                    COLABORAÇÃO
-                </p>
+                <div class="people-group-header">
 
-                <h2>
-                    Colaboradores
-                </h2>
+                    <p class="eyebrow">
+                        COLLABORATION
+                    </p>
 
-            </div>
+                    <h2>
+                        Collaborators
+                    </h2>
 
+                </div>
 
-            <div class="people-grid">
+                <div class="people-grid">
 
-                {{ range $collaborators.ByWeight }}
+                    {{ range $collaborators.ByTitle }}
 
-                    {{ partial "person-card.html" . }}
+                        {{ partial "person-card.html" . }}
 
-                {{ end }}
+                    {{ end }}
 
-            </div>
+                </div>
 
-        </section>
+            </section>
+
+            {{ end }}
+
+        {{ else }}
+
+            {{ $collaborators := where .Pages "Params.role" "Colaborador" }}
+
+            {{ if $collaborators }}
+
+            <section class="people-group">
+
+                <div class="people-group-header">
+
+                    <p class="eyebrow">
+                        COLABORAÇÃO
+                    </p>
+
+                    <h2>
+                        Colaboradores
+                    </h2>
+
+                </div>
+
+                <div class="people-grid">
+
+                    {{ range $collaborators.ByTitle }}
+
+                        {{ partial "person-card.html" . }}
+
+                    {{ end }}
+
+                </div>
+
+            </section>
+
+            {{ end }}
 
         {{ end }}
 

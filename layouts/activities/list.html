@@ -5,7 +5,11 @@
     <div class="page-header">
 
         <span class="section-label">
-            VIDA ACADÊMICA
+            {{ if eq .Language.Lang "en" }}
+                ACADEMIC LIFE
+            {{ else }}
+                VIDA ACADÊMICA
+            {{ end }}
         </span>
 
         <h1>
@@ -22,7 +26,7 @@
 
 
     {{/* =========================================================
-         PRÓXIMAS ATIVIDADES
+         UPCOMING ACTIVITIES
          ========================================================= */}}
 
     {{ $today := now.Format "2006-01-02" }}
@@ -49,11 +53,19 @@
         <div class="activities-section-header">
 
             <span class="section-label">
-                PRÓXIMAS
+                {{ if eq .Language.Lang "en" }}
+                    UPCOMING
+                {{ else }}
+                    PRÓXIMAS
+                {{ end }}
             </span>
 
             <h2>
-                Próximas atividades
+                {{ if eq .Language.Lang "en" }}
+                    Upcoming activities
+                {{ else }}
+                    Próximas atividades
+                {{ end }}
             </h2>
 
         </div>
@@ -165,7 +177,7 @@
 
 
     {{/* =========================================================
-         ATIVIDADES REALIZADAS
+         COMPLETED ACTIVITIES
          ========================================================= */}}
 
     {{ $past := slice }}
@@ -190,11 +202,19 @@
         <div class="activities-section-header">
 
             <span class="section-label">
-                HISTÓRICO
+                {{ if eq .Language.Lang "en" }}
+                    HISTORY
+                {{ else }}
+                    HISTÓRICO
+                {{ end }}
             </span>
 
             <h2>
-                Atividades realizadas
+                {{ if eq .Language.Lang "en" }}
+                    Completed activities
+                {{ else }}
+                    Atividades realizadas
+                {{ end }}
             </h2>
 
         </div>

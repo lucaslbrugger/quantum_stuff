@@ -4,7 +4,13 @@
 
     <div class="page-header">
 
-        <span class="section-label">REGISTROS</span>
+        <span class="section-label">
+            {{ if eq .Language.Lang "en" }}
+                RECORDS
+            {{ else }}
+                REGISTROS
+            {{ end }}
+        </span>
 
         <h1>{{ .Title }}</h1>
 

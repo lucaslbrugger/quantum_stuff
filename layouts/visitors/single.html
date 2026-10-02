@@ -2,8 +2,16 @@
 
 <section class="visitor-single">
 
-    <a href="{{ "visitors/" | relURL }}" class="back-link">
-        ← Voltar para Visitantes
+    <a
+        href="{{ "visitors/" | relLangURL }}"
+        class="back-link"
+    >
+        ←
+        {{ if eq .Language.Lang "en" }}
+            Back to Visitors
+        {{ else }}
+            Voltar para Visitantes
+        {{ end }}
     </a>
 
 
@@ -32,10 +40,16 @@
         <div class="visitor-profile-info">
 
             <span class="section-label">
-                PESQUISADOR VISITANTE
+                {{ if eq .Language.Lang "en" }}
+                    VISITING RESEARCHER
+                {{ else }}
+                    PESQUISADOR VISITANTE
+                {{ end }}
             </span>
 
-            <h1>{{ .Params.name }}</h1>
+            <h1>
+                {{ .Params.name }}
+            </h1>
 
             <p class="visitor-profile-role">
                 {{ .Params.role }}
@@ -43,15 +57,25 @@
 
             <p class="visitor-profile-institution">
                 {{ .Params.institution }}
+
                 {{ with .Params.country }}
                     · {{ . }}
                 {{ end }}
+
             </p>
 
             {{ with .Params.period }}
+
             <p class="visitor-profile-period">
-                Período: {{ . }}
+
+                {{ if eq $.Language.Lang "en" }}
+                    Period: {{ . }}
+                {{ else }}
+                    Período: {{ . }}
+                {{ end }}
+
             </p>
+
             {{ end }}
 
         </div>
@@ -63,7 +87,13 @@
 
         <div class="visitor-profile-main">
 
-            <h2>Sobre a visita</h2>
+            <h2>
+                {{ if eq .Language.Lang "en" }}
+                    About the visit
+                {{ else }}
+                    Sobre a visita
+                {{ end }}
+            </h2>
 
             {{ .Content }}
 
@@ -74,15 +104,21 @@
 
         <aside class="visitor-profile-research">
 
-            <h2>Frente de pesquisa</h2>
+            <h2>
+                {{ if eq $.Language.Lang "en" }}
+                    Research area
+                {{ else }}
+                    Frente de pesquisa
+                {{ end }}
+            </h2>
 
             <div class="visitor-research">
 
-        {{ with $.Params.research }}
-            <span>{{ . }}</span>
-        {{ end }}
+                <span>
+                    {{ . }}
+                </span>
 
-        </div>
+            </div>
 
         </aside>
 

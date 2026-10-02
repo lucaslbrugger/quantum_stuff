@@ -5,7 +5,11 @@
     <div class="page-header">
 
         <span class="section-label">
-            COLABORAÇÕES
+            {{ if eq .Language.Lang "en" }}
+                COLLABORATIONS
+            {{ else }}
+                COLABORAÇÕES
+            {{ end }}
         </span>
 
         <h1>
@@ -24,9 +28,15 @@
     <div class="visitors-intro">
 
         <p>
-            O Quantum Stuff Group recebe pesquisadores e estudantes
-            de diferentes instituições para períodos de colaboração,
-            intercâmbio e desenvolvimento conjunto de pesquisas.
+            {{ if eq .Language.Lang "en" }}
+                The Quantum Stuff Group welcomes researchers and students
+                from different institutions for periods of collaboration,
+                exchange, and joint research development.
+            {{ else }}
+                O Quantum Stuff Group recebe pesquisadores e estudantes
+                de diferentes instituições para períodos de colaboração,
+                intercâmbio e desenvolvimento conjunto de pesquisas.
+            {{ end }}
         </p>
 
     </div>
@@ -49,59 +59,64 @@
             </div>
 
 
-           <div class="visitor-content">
+            <div class="visitor-content">
 
-    <div class="visitor-info">
+                <div class="visitor-info">
 
-        <span class="visitor-label">
-            VISITANTE
-        </span>
+                    <span class="visitor-label">
+                        {{ if eq $.Language.Lang "en" }}
+                            VISITOR
+                        {{ else }}
+                            VISITANTE
+                        {{ end }}
+                    </span>
 
-        <h2>
-            {{ .Title }}
-        </h2>
+                    <h2>
+                        {{ .Title }}
+                    </h2>
 
-        {{ with .Params.institution }}
+                    {{ with .Params.institution }}
 
-        <p class="visitor-institution">
-            {{ . }}
-        </p>
+                    <p class="visitor-institution">
+                        {{ . }}
+                    </p>
 
-        {{ end }}
+                    {{ end }}
 
-        {{ with .Params.research }}
+                    {{ with .Params.research }}
 
-        <p class="visitor-research">
-            {{ . }}
-        </p>
+                    <p class="visitor-research">
+                        {{ . }}
+                    </p>
 
-        {{ end }}
+                    {{ end }}
 
-        {{ with .Content }}
+                    {{ with .Content }}
 
-        <div class="visitor-description">
-            {{ . }}
-        </div>
+                    <div class="visitor-description">
+                        {{ . }}
+                    </div>
 
-        {{ end }}
+                    {{ end }}
 
-    </div>
+                </div>
 
 
-    {{ with .Params.photo }}
+                {{ with .Params.photo }}
 
-    <div class="visitor-photo">
+                <div class="visitor-photo">
 
-        <img
-            src="{{ printf "images/visitors/%s" . | relURL }}"
-            alt="Foto de {{ $.Title }}"
-        >
+                    <img
+                        src="{{ . | relURL }}"
+                        alt="{{ if eq $.Language.Lang "en" }}Photo of{{ else }}Foto de{{ end }} {{ $.Title }}"
+                        loading="lazy"
+                    >
 
-    </div>
+                </div>
 
-    {{ end }}
+                {{ end }}
 
-</div>
+            </div>
 
         </article>
 

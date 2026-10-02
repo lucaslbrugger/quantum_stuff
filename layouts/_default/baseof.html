@@ -225,25 +225,41 @@
 
             <div class="language-switcher">
 
-                {{ range .AllTranslations }}
+    {{ if eq .Lang "en" }}
 
-                    {{ if eq .Language.Lang $.Language.Lang }}
+        <a href="{{ .RelPermalink }}" class="active">
+            EN
+        </a>
 
-                        <span class="language-current">
-                            {{ .Language.Label }}
-                        </span>
-
-                    {{ else }}
-
-                        <a href="{{ .RelPermalink }}">
-                            {{ .Language.Label }}
-                        </a>
-
-                    {{ end }}
-
+        {{ with .Translations }}
+            {{ range . }}
+                {{ if eq .Lang "pt" }}
+                    <a href="{{ .RelPermalink }}">
+                        PT
+                    </a>
                 {{ end }}
+            {{ end }}
+        {{ end }}
 
-            </div>
+    {{ else }}
+
+        <a href="{{ .RelPermalink }}" class="active">
+            PT
+        </a>
+
+        {{ with .Translations }}
+            {{ range . }}
+                {{ if eq .Lang "en" }}
+                    <a href="{{ .RelPermalink }}">
+                        EN
+                    </a>
+                {{ end }}
+            {{ end }}
+        {{ end }}
+
+    {{ end }}
+
+</div>
 
 
         </div>

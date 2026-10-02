@@ -5,7 +5,11 @@
     <div class="page-header">
 
         <span class="section-label">
-            PRODUÇÃO CIENTÍFICA
+            {{ if eq .Language.Lang "en" }}
+                SCIENTIFIC OUTPUT
+            {{ else }}
+                PRODUÇÃO CIENTÍFICA
+            {{ end }}
         </span>
 
         <h1>

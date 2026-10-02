@@ -2,8 +2,8 @@
 title: "Carlos Humberto"
 date: 2025-05-15
 institution: "UNICAMP"
-period: "Maio de 2025"
-research: "Informação Quântica"
+period: "May de 2025"
+research: "Quantum Information"
 photo: "images/visitors/carlos-humberto.jpg"
 ---
 
