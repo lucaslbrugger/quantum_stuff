@@ -3527,8 +3527,263 @@ em {
 }
 
 /* =========================================================
+   PUBLICAÇÕES NO PERFIL
+   ========================================================= */
+
+.person-publications {
+
+    max-width: 1080px;
+
+    margin:
+        110px auto
+        0;
+
+    padding-top: 70px;
+
+    border-top:
+        1px solid
+        rgba(70, 110, 75, 0.13);
+
+}
+
+
+.person-publications-header {
+
+    margin-bottom: 38px;
+
+}
+
+
+.person-publications-header h2 {
+
+    margin: 0;
+
+    font-size:
+        clamp(
+            2.4rem,
+            5vw,
+            3.8rem
+        );
+
+    line-height: 1;
+
+    letter-spacing: -0.04em;
+
+    color: var(--green-dark);
+
+}
+
+
+.person-publications-list {
+
+    border-top:
+        1px solid
+        rgba(70, 110, 75, 0.13);
+
+}
+
+
+.person-publication-item {
+
+    display: grid;
+
+    grid-template-columns:
+        80px
+        minmax(0, 1fr)
+        40px;
+
+    gap: 25px;
+
+    align-items: center;
+
+    padding:
+        25px
+        10px;
+
+    border-bottom:
+        1px solid
+        rgba(70, 110, 75, 0.13);
+
+    color: inherit;
+
+    transition:
+        background 0.2s ease,
+        padding-left 0.2s ease;
+
+}
+
+
+.person-publication-item:hover {
+
+    background:
+        rgba(220, 236, 223, 0.28);
+
+    padding-left: 17px;
+
+}
+
+
+.person-publication-year {
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    color: #6d9273;
+
+}
+
+
+.person-publication-main {
+
+    min-width: 0;
+
+}
+
+
+.person-publication-main .publication-type {
+
+    margin-bottom: 7px;
+
+}
+
+
+.person-publication-main h3 {
+
+    margin: 0 0 7px;
+
+    font-size: 1.15rem;
+
+    line-height: 1.35;
+
+    color: #293d2e;
+
+}
+
+
+.person-publication-main p {
+
+    margin: 0;
+
+    font-size: 0.82rem;
+
+    font-style: italic;
+
+    color: #7e877f;
+
+}
+
+
+.person-publication-arrow {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: #edf5ee;
+
+    color: #54795b;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.person-publication-item:hover
+.person-publication-arrow {
+
+    transform:
+        translateX(4px);
+
+    background: #e0eee2;
+
+}
+
+
+@media (max-width: 700px) {
+
+    .person-publications {
+
+        margin-top: 80px;
+
+        padding-top: 55px;
+
+    }
+
+
+    .person-publications-header {
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .person-publication-item {
+
+        grid-template-columns:
+            55px
+            minmax(0, 1fr)
+            32px;
+
+        gap: 12px;
+
+        padding:
+            22px
+            5px;
+
+    }
+
+
+    .person-publication-main h3 {
+
+        font-size: 1rem;
+
+    }
+
+
+    .person-publication-year {
+
+        font-size: 0.85rem;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .person-publication-item {
+
+        grid-template-columns:
+            1fr
+            32px;
+
+    }
+
+
+    .person-publication-year {
+
+        grid-column: 1 / -1;
+
+    }
+
+}
+
+
+/* =========================================================
    RESEARCH
    ========================================================= */
+
+
 
 .research-page {
     min-height: 100vh;
@@ -4905,6 +5160,18 @@ em {
         );
 }
 
+
+/* Links externos das publicações */
+.publication-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.publication-links a {
+    text-decoration: none;
+}
 
 /* =========================================================
    PUBLICATION LIST
