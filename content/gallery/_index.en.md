@@ -3,23 +3,14 @@ title: "Gallery"
 description: "Moments, gatherings, and activities of the research group."
 
 images:
-  - image: "images/gallery/grupo-01.jpg"
-    title: "Group meeting"
-    category: "Group"
-    description: "Record of a research group activity."
+  - image: "images/gallery/seminario-fernando-1.jpg"
+    title: "Seminar — Fernando de Melo (CBPF)"
+    category: "Seminar"
+    description: "Seminar by Fernando de Melo (CBPF), hosted by the Quantum Stuff Group."
 
-  - image: "images/gallery/grupo-02.jpg"
-    title: "Academic activity"
-    category: "Activities"
-    description: "Participation in an academic activity."
+  - image: "images/gallery/seminario-fernando-2.jpg"
+    title: "Seminar — Fernando de Melo (CBPF)"
+    category: "Seminar"
+    description: "Seminar by Fernando de Melo (CBPF), hosted by the Quantum Stuff Group."
 
-  - image: "images/gallery/grupo-03.jpg"
-    title: "Seminar"
-    category: "Seminars"
-    description: "Seminar held by the group."
-
-  - image: "images/gallery/grupo-04.jpg"
-    title: "Scientific gathering"
-    category: "Events"
-    description: "Participation in a scientific event."
 ---
