@@ -3,23 +3,13 @@ title: "Galeria"
 description: "Momentos, encontros e atividades do grupo de pesquisa."
 
 images:
-  - image: "images/gallery/grupo-01.jpg"
-    title: "Encontro do grupo"
-    category: "Grupo"
-    description: "Registro de uma atividade do grupo de pesquisa."
-
-  - image: "images/gallery/grupo-02.jpg"
-    title: "Atividade acadêmica"
-    category: "Atividades"
-    description: "Participação em atividade acadêmica."
-
-  - image: "images/gallery/grupo-03.jpg"
-    title: "Seminário"
+  - image: "images/gallery/fernando-melo-cbpf-01.jpg"
+    title: "Seminário — Fernando de Melo (CBPF)"
     category: "Seminários"
-    description: "Seminário realizado pelo grupo."
+    description: "Seminário de Fernando de Melo, do CBPF, realizado pelo Quantum Stuff Group."
 
-  - image: "images/gallery/grupo-04.jpg"
-    title: "Encontro científico"
-    category: "Eventos"
-    description: "Participação em evento científico."
+  - image: "images/gallery/fernando-melo-cbpf-02.jpg"
+    title: "Seminário — Fernando de Melo (CBPF)"
+    category: "Seminários"
+    description: "Seminário de Fernando de Melo, do CBPF, realizado pelo Quantum Stuff Group."
 ---
