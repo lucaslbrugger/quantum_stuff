@@ -12,4 +12,9 @@ images:
     title: "Seminário — Fernando de Melo (CBPF)"
     category: "Seminários"
     description: "Seminário de Fernando de Melo, do CBPF, realizado pelo Quantum Stuff Group."
+
+  - image: "images/gallery/seminario-fernando-3.jpg"
+    title: "Seminário — Fernando de Melo (CBPF)"
+    category: "Seminários"
+    description: "Seminário de Fernando de Melo, do CBPF, realizado pelo Quantum Stuff Group."
 ---
