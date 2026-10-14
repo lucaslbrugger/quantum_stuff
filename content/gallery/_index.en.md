@@ -13,4 +13,8 @@ images:
     category: "Seminar"
     description: "Seminar by Fernando de Melo (CBPF), hosted by the Quantum Stuff Group."
 
+  - image: "images/gallery/seminario-fernando-3.jpg"
+    title: "Seminar — Fernando de Melo (CBPF)"
+    category: "Seminar"
+    description: "Seminar by Fernando de Melo (CBPF), hosted by the Quantum Stuff Group."
 ---
